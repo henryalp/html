@@ -6,74 +6,79 @@
     <meta name="description" content="Compra y vende artículos cerca de ti. Encuentra opciones y coordina tu encuentro en un lugar público.">
     <title>CorilloMarket | Compra y vende cerca</title>
     <link rel="stylesheet" href="style/style.css">
-    <link rel="icon" href="../public/img/favicon.png" type="image/png">
+    <script src="js/theme.js" defer></script>
 </head>
-<body>
-    <header class="site-header">
-        <a class="brand" href="index.html" aria-label="CorilloMarket, inicio">
-            <span class="brand-mark" aria-hidden="true">CM</span>
-            <span class="brand-name">Corillo<span>Market</span></span>
+<body class="cm-page">
+    <header class="cm-header">
+        <a class="cm-brand" href="index.html" aria-label="CorilloMarket, inicio">
+            <span class="cm-brand__mark" aria-hidden="true">CM</span>
+            <span class="cm-brand__name">Corillo<span class="cm-brand__name-accent">Market</span></span>
         </a>
 
-        <form class="search-form" action="#productos" method="get" role="search">
-            <label class="visually-hidden" for="busqueda">Buscar artículos</label>
-            <input id="busqueda" name="q" type="search" placeholder="¿Qué estás buscando?">
-            <button type="submit" aria-label="Buscar">Buscar</button>
+        <form class="cm-search" action="#cm-listings" method="get" role="search">
+            <label class="cm-visually-hidden" for="cm-search-query">Buscar artículos</label>
+            <input class="cm-search__input" id="cm-search-query" name="q" type="search" placeholder="¿Qué estás buscando?">
+            <button class="cm-button cm-button--search" type="submit" aria-label="Buscar artículos">Buscar</button>
         </form>
 
-        <nav class="main-nav" aria-label="Navegación principal">
-            <a class="nav-link active" href="index.html">Explorar</a>
-            <a class="nav-link" href="#como-funciona">Cómo funciona</a>
-            <a class="nav-link" href="login.php">Iniciar sesión</a>
-            <a class="button button-primary" href="registro.php">Publicar artículo</a>
+        <nav class="cm-navigation" aria-label="Navegación principal">
+            <button class="cm-theme-toggle" type="button" data-theme-toggle aria-label="Cambiar tema" aria-pressed="false" title="Cambiar a modo claro">
+                <span class="cm-theme-toggle__icon" data-theme-icon aria-hidden="true">☼</span>
+            </button>
+            <a class="cm-navigation__link cm-navigation__link--active" href="index.html" aria-current="page">Explorar</a>
+            <a class="cm-navigation__link" href="#cm-how-it-works">Cómo funciona</a>
+            <a class="cm-navigation__link" href="login.php">Iniciar sesión</a>
+            <a class="cm-button cm-button--primary" href="registro.php">Publicar artículo</a>
         </nav>
     </header>
 
-    <main>
-        <section class="welcome" aria-labelledby="welcome-title">
-            <div class="welcome-copy">
-                <p class="eyebrow">Compra y vende en tu zona</p>
-                <h1 id="welcome-title">Lo que buscas puede estar <span>en el corillo.</span></h1>
-                <p>Descubre artículos cerca de ti y coordina el encuentro en un lugar público que les quede cómodo a ambos.</p>
-                <a class="button button-primary" href="#productos">Explorar artículos</a>
+    <main class="cm-main">
+        <section class="cm-intro" aria-labelledby="cm-intro-title">
+            <div class="cm-intro__copy">
+                <p class="cm-eyebrow">Compra y vende en tu zona</p>
+                <h1 class="cm-intro__title" id="cm-intro-title">Lo que buscas puede estar <span class="cm-intro__title-accent">en el corillo.</span></h1>
+                <p class="cm-intro__description">Descubre artículos cerca de ti y coordina el encuentro en un lugar público que les quede cómodo a ambos.</p>
+                <a class="cm-button cm-button--primary" href="#cm-listings">Explorar artículos</a>
             </div>
-            <aside class="location-card" aria-label="Ubicación seleccionada">
-                <span class="location-icon" aria-hidden="true">⌖</span>
-                <div>
-                    <p class="card-label">Explorando cerca de</p>
-                    <p class="location-name">Santo Domingo, República Dominicana</p>
+
+            <aside class="cm-location" id="cm-location" aria-label="Ubicación seleccionada">
+                <span class="cm-location__icon" aria-hidden="true">⌖</span>
+                <div class="cm-location__details">
+                    <p class="cm-location__label">Explorando cerca de</p>
+                    <p class="cm-location__name">Santo Domingo, República Dominicana</p>
                 </div>
-                <a href="#ubicacion" class="text-link">Cambiar</a>
+                <a class="cm-text-link" href="#cm-location">Cambiar</a>
             </aside>
         </section>
 
-        <section class="category-section" aria-labelledby="categories-title">
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">Encuentra tu próxima vuelta</p>
-                    <h2 id="categories-title">Explora por categoría</h2>
+        <section class="cm-categories" aria-labelledby="cm-categories-title">
+            <div class="cm-section-heading">
+                <div class="cm-section-heading__copy">
+                    <p class="cm-eyebrow">Encuentra tu próxima vuelta</p>
+                    <h2 class="cm-section-heading__title" id="cm-categories-title">Explora por categoría</h2>
                 </div>
-                <a class="text-link" href="#productos">Ver todo</a>
+                <a class="cm-text-link" href="#cm-listings">Ver todo</a>
             </div>
-            <nav class="category-list" aria-label="Categorías de artículos">
-                <a class="category-chip selected" href="#productos">Todo</a>
-                <a class="category-chip" href="#productos">Electrónica</a>
-                <a class="category-chip" href="#productos">Hogar</a>
-                <a class="category-chip" href="#productos">Moda</a>
-                <a class="category-chip" href="#productos">Deportes</a>
-                <a class="category-chip" href="#productos">Vehículos</a>
-                <a class="category-chip" href="#productos">Coleccionables</a>
+
+            <nav class="cm-category-list" aria-label="Categorías de artículos">
+                <a class="cm-category-chip cm-category-chip--selected" href="#cm-listings" aria-current="true">Todo</a>
+                <a class="cm-category-chip" href="#cm-listings">Electrónica</a>
+                <a class="cm-category-chip" href="#cm-listings">Hogar</a>
+                <a class="cm-category-chip" href="#cm-listings">Moda</a>
+                <a class="cm-category-chip" href="#cm-listings">Deportes</a>
+                <a class="cm-category-chip" href="#cm-listings">Vehículos</a>
+                <a class="cm-category-chip" href="#cm-listings">Coleccionables</a>
             </nav>
         </section>
 
-        <section class="listing-section" id="productos" aria-labelledby="listings-title">
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">Oportunidades cerca de ti</p>
-                    <h2 id="listings-title">Artículos recientes</h2>
+        <section class="cm-listings" id="cm-listings" aria-labelledby="cm-listings-title">
+            <div class="cm-section-heading">
+                <div class="cm-section-heading__copy">
+                    <p class="cm-eyebrow">Oportunidades cerca de ti</p>
+                    <h2 class="cm-section-heading__title" id="cm-listings-title">Artículos recientes</h2>
                 </div>
-                <label class="sort-control" for="ordenar">Ordenar por
-                    <select id="ordenar" name="ordenar">
+                <label class="cm-sort" for="cm-sort-order">Ordenar por
+                    <select class="cm-sort__select" id="cm-sort-order" name="ordenar">
                         <option value="recientes">Más recientes</option>
                         <option value="menor-precio">Menor precio</option>
                         <option value="mayor-precio">Mayor precio</option>
@@ -81,83 +86,86 @@
                 </label>
             </div>
 
-            <div class="product-grid">
-                <article class="product-card">
-                    <a class="product-image image-electronics" href="#articulo-1" aria-label="Ver audífonos inalámbricos">
-                        <span class="image-placeholder" aria-hidden="true">🎧</span>
-                        <span class="image-tag">Buen estado</span>
+            <div class="cm-product-grid">
+                <article class="cm-product-card">
+                    <a class="cm-product-card__image cm-product-card__image--electronics" href="#cm-listings" aria-label="Ver audífonos inalámbricos">
+                        <span class="cm-product-card__placeholder" aria-hidden="true">🎧</span>
+                        <span class="cm-product-card__tag">Buen estado</span>
                     </a>
-                    <div class="product-info">
-                        <p class="product-price">RD$ 2,500</p>
-                        <h3><a href="#articulo-1">Audífonos inalámbricos</a></h3>
-                        <p class="product-location">Naco, Distrito Nacional · A 2 km</p>
-                        <p class="product-date">Publicado hace 2 horas</p>
+                    <div class="cm-product-card__info">
+                        <p class="cm-product-card__price">RD$ 2,500</p>
+                        <h3 class="cm-product-card__title"><a href="#cm-listings">Audífonos inalámbricos</a></h3>
+                        <p class="cm-product-card__location">Naco, Distrito Nacional · A 2 km</p>
+                        <p class="cm-product-card__date">Publicado hace 2 horas</p>
                     </div>
                 </article>
 
-                <article class="product-card">
-                    <a class="product-image image-home" href="#articulo-2" aria-label="Ver silla de escritorio">
-                        <span class="image-placeholder" aria-hidden="true">🪑</span>
-                        <span class="image-tag">Usado</span>
+                <article class="cm-product-card">
+                    <a class="cm-product-card__image cm-product-card__image--home" href="#cm-listings" aria-label="Ver silla de escritorio">
+                        <span class="cm-product-card__placeholder" aria-hidden="true">🪑</span>
+                        <span class="cm-product-card__tag">Usado</span>
                     </a>
-                    <div class="product-info">
-                        <p class="product-price">RD$ 4,200</p>
-                        <h3><a href="#articulo-2">Silla de escritorio</a></h3>
-                        <p class="product-location">Piantini, Distrito Nacional · A 3 km</p>
-                        <p class="product-date">Publicado ayer</p>
+                    <div class="cm-product-card__info">
+                        <p class="cm-product-card__price">RD$ 4,200</p>
+                        <h3 class="cm-product-card__title"><a href="#cm-listings">Silla de escritorio</a></h3>
+                        <p class="cm-product-card__location">Piantini, Distrito Nacional · A 3 km</p>
+                        <p class="cm-product-card__date">Publicado ayer</p>
                     </div>
                 </article>
 
-                <article class="product-card">
-                    <a class="product-image image-fashion" href="#articulo-3" aria-label="Ver tenis deportivos">
-                        <span class="image-placeholder" aria-hidden="true">👟</span>
-                        <span class="image-tag">Como nuevo</span>
+                <article class="cm-product-card">
+                    <a class="cm-product-card__image cm-product-card__image--fashion" href="#cm-listings" aria-label="Ver tenis deportivos">
+                        <span class="cm-product-card__placeholder" aria-hidden="true">👟</span>
+                        <span class="cm-product-card__tag">Como nuevo</span>
                     </a>
-                    <div class="product-info">
-                        <p class="product-price">RD$ 3,000</p>
-                        <h3><a href="#articulo-3">Tenis deportivos, talla 9</a></h3>
-                        <p class="product-location">Los Prados, Distrito Nacional · A 5 km</p>
-                        <p class="product-date">Publicado hace 5 horas</p>
+                    <div class="cm-product-card__info">
+                        <p class="cm-product-card__price">RD$ 3,000</p>
+                        <h3 class="cm-product-card__title"><a href="#cm-listings">Tenis deportivos, talla 9</a></h3>
+                        <p class="cm-product-card__location">Los Prados, Distrito Nacional · A 5 km</p>
+                        <p class="cm-product-card__date">Publicado hace 5 horas</p>
                     </div>
                 </article>
 
-                <article class="product-card">
-                    <a class="product-image image-collectibles" href="#articulo-4" aria-label="Ver cámara instantánea">
-                        <span class="image-placeholder" aria-hidden="true">📷</span>
-                        <span class="image-tag">Buen estado</span>
+                <article class="cm-product-card">
+                    <a class="cm-product-card__image cm-product-card__image--collectibles" href="#cm-listings" aria-label="Ver cámara instantánea">
+                        <span class="cm-product-card__placeholder" aria-hidden="true">📷</span>
+                        <span class="cm-product-card__tag">Buen estado</span>
                     </a>
-                    <div class="product-info">
-                        <p class="product-price">RD$ 5,800</p>
-                        <h3><a href="#articulo-4">Cámara instantánea</a></h3>
-                        <p class="product-location">Gazcue, Distrito Nacional · A 4 km</p>
-                        <p class="product-date">Publicado hace 1 día</p>
+                    <div class="cm-product-card__info">
+                        <p class="cm-product-card__price">RD$ 5,800</p>
+                        <h3 class="cm-product-card__title"><a href="#cm-listings">Cámara instantánea</a></h3>
+                        <p class="cm-product-card__location">Gazcue, Distrito Nacional · A 4 km</p>
+                        <p class="cm-product-card__date">Publicado hace 1 día</p>
                     </div>
                 </article>
             </div>
         </section>
 
-        <section class="meetup-banner" id="como-funciona" aria-labelledby="meetup-title">
-            <div>
-                <p class="eyebrow">Coordinen con calma</p>
-                <h2 id="meetup-title">Un buen trato empieza con un buen punto de encuentro.</h2>
-                <p>Al coordinar una compra, podrán explorar lugares públicos cercanos a ambos y elegir el que les convenga.</p>
+        <section class="cm-meetup" id="cm-how-it-works" aria-labelledby="cm-meetup-title">
+            <div class="cm-meetup__copy">
+                <p class="cm-eyebrow">Coordinen con calma</p>
+                <h2 class="cm-meetup__title" id="cm-meetup-title">Un buen trato empieza con un buen punto de encuentro.</h2>
+                <p class="cm-meetup__description">Al coordinar una compra, podrán explorar lugares públicos cercanos a ambos y elegir el que les convenga.</p>
             </div>
-            <a class="button button-secondary" href="como-funciona.html">Conoce cómo funciona</a>
+            <a class="cm-button cm-button--secondary" href="como-funciona.html">Conoce cómo funciona</a>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <a class="brand brand-footer" href="index.html">
-            <span class="brand-mark" aria-hidden="true">CM</span>
-            <span class="brand-name">Corillo<span>Market</span></span>
+    <footer class="cm-footer">
+        <a class="cm-brand cm-brand--footer" href="index.html" aria-label="CorilloMarket, inicio">
+            <span class="cm-brand__mark" aria-hidden="true">CM</span>
+            <span class="cm-brand__name">Corillo<span class="cm-brand__name-accent">Market</span></span>
         </a>
-        <p>Compra y vende cerca. Coordina tu encuentro en un lugar público.</p>
-        <nav aria-label="Enlaces del pie de página">
+        <p class="cm-footer__description">Compra y vende cerca. Coordina tu encuentro en un lugar público.</p>
+        <nav class="cm-footer__navigation" aria-label="Enlaces del pie de página">
             <a href="como-funciona.html">Cómo funciona</a>
             <a href="contacto.html">Contacto</a>
             <a href="privacidad.html">Privacidad</a>
         </nav>
-        <small>&copy; 2026 CorilloMarket. Hecho para el corillo.</small>
+        <small class="cm-footer__copyright">&copy; 2026 CorilloMarket. Hecho para el corillo.</small>
     </footer>
 </body>
 </html>
+
+
+
