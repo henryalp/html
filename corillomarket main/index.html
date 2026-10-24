@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compra y vende artículos cerca de ti. Coordina tu encuentro en un lugar público.">
+    <title>CorilloMarket | Compra y vende cerca</title>
+    <script src="public/front/js/rutas.js" data-pagina="inicio" defer></script>
+
+
+</head>
+<body class="cm-page">
+    <header class="cm-header">
+        <a class="cm-brand" href="#" data-ruta="inicio" aria-label="CorilloMarket, inicio">
+            <span class="cm-brand-mark" aria-hidden="true">CM</span>
+            <span class="cm-brand-name">Corillo<span class="cm-brand-name-accent">Market</span></span>
+        </a>
+
+        <form class="cm-search" id="cm-search-form" role="search">
+            <label class="cm-visually-hidden" for="cm-search-query">Buscar artículos</label>
+            <input
+                class="cm-search-input"
+                id="cm-search-query"
+                name="q"
+                type="search"
+                placeholder="¿Qué estás buscando?"
+            >
+            <button class="cm-button cm-button-search" type="submit">Buscar</button>
+        </form>
+
+        <nav class="cm-navigation" aria-label="Navegación principal">
+            <button
+                class="cm-theme-toggle"
+                type="button"
+                data-theme-toggle
+                aria-label="Cambiar tema"
+                aria-pressed="false"
+                title="Cambiar a modo claro"
+            >
+                <span class="cm-theme-toggle-icon" data-theme-icon aria-hidden="true">☼</span>
+            </button>
+            <a
+                class="cm-navigation-link cm-navigation-link-active"
+                href="#" data-ruta="inicio"
+                aria-current="page"
+            >Explorar</a>
+            <a class="cm-navigation-link" href="#cm-listings">Artículos</a>
+            <button
+                class="cm-navigation-link cm-navigation-button"
+                type="button"
+                data-open-login
+            >Iniciar sesión</button>
+            <a class="cm-navigation-link" href="#" data-ruta="registro">Crear cuenta</a>
+            <button
+                class="cm-button cm-button-primary"
+                type="button"
+                data-open-listing
+            >Publicar artículo</button>
+            <div class="cm-account" data-account-area hidden>
+                <span class="cm-account-name" data-account-name></span>
+                <span class="cm-account-count" data-account-count></span>
+                <a class="cm-navigation-link" href="#" data-ruta="chats">Mensajes <span data-chat-count>0</span></a>
+                <button class="cm-navigation-button" type="button" data-logout>
+                    Cerrar sesión
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="cm-main">
+        <p class="cm-notice" id="cm-notice" role="status" aria-live="polite" hidden></p>
+
+        <section class="cm-intro" aria-labelledby="cm-intro-title">
+            <div class="cm-intro-copy">
+                <p class="cm-eyebrow">Compra y vende en tu zona</p>
+                <h1 class="cm-intro-title" id="cm-intro-title">
+                    Lo que buscas puede estar
+                    <span class="cm-intro-title-accent">en el corillo.</span>
+                </h1>
+                <p class="cm-intro-description">
+                    Descubre artículos cerca de ti y coordina el encuentro en un lugar público
+                    que les quede cómodo a ambos.
+                </p>
+                <a class="cm-button cm-button-primary" href="#cm-listings">
+                    Explorar artículos
+                </a>
+            </div>
+
+            <aside class="cm-location" id="cm-location" aria-label="Ubicación seleccionada">
+                <span class="cm-location-icon" aria-hidden="true">⌖</span>
+                <div class="cm-location-details">
+                    <p class="cm-location-label">Explorando cerca de</p>
+                    <p class="cm-location-name">Santo Domingo, República Dominicana</p>
+                </div>
+            </aside>
+        </section>
+
+        <section class="cm-categories" aria-labelledby="cm-categories-title">
+            <div class="cm-section-heading">
+                <div>
+                    <p class="cm-eyebrow">Encuentra tu próxima vuelta</p>
+                    <h2 class="cm-section-heading-title" id="cm-categories-title">
+                        Explora por categoría
+                    </h2>
+                </div>
+                <a class="cm-text-link" href="#cm-listings">Ver todo</a>
+            </div>
+
+            <nav
+                class="cm-category-list"
+                aria-label="Categorías de artículos"
+                data-category-list
+            >
+                <button
+                    class="cm-category-chip cm-category-chip-selected"
+                    type="button"
+                    data-category="Todas"
+                    aria-current="true"
+                >Todo</button>
+                <button class="cm-category-chip" type="button" data-category="Electrónica">
+                    Electrónica
+                </button>
+                <button class="cm-category-chip" type="button" data-category="Hogar">Hogar</button>
+                <button class="cm-category-chip" type="button" data-category="Moda">Moda</button>
+                <button class="cm-category-chip" type="button" data-category="Deportes">
+                    Deportes
+                </button>
+                <button class="cm-category-chip" type="button" data-category="Vehículos">
+                    Vehículos
+                </button>
+                <button class="cm-category-chip" type="button" data-category="Coleccionables">
+                    Coleccionables
+                </button>
+                <button class="cm-category-chip" type="button" data-category="Otros">Otros</button>
+            </nav>
+        </section>
+
+        <section class="cm-listings" id="cm-listings" aria-labelledby="cm-listings-title">
+            <div class="cm-section-heading">
+                <div>
+                    <p class="cm-eyebrow">Oportunidades cerca de ti</p>
+                    <h2 class="cm-section-heading-title" id="cm-listings-title">
+                        Artículos recientes
+                    </h2>
+                </div>
+                <label class="cm-sort" for="cm-sort-order">
+                    Ordenar por
+                    <select class="cm-sort-select" id="cm-sort-order" name="ordenar">
+                        <option value="recientes">Más recientes</option>
+                        <option value="menor-precio">Menor precio</option>
+                        <option value="mayor-precio">Mayor precio</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="cm-product-grid" id="cm-product-grid" aria-live="polite">
+                <p class="cm-empty-state">Cargando artículos…</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="cm-footer">
+        <a class="cm-brand cm-brand-footer" href="#" data-ruta="inicio" aria-label="CorilloMarket, inicio">
+            <span class="cm-brand-mark" aria-hidden="true">CM</span>
+            <span class="cm-brand-name">Corillo<span class="cm-brand-name-accent">Market</span></span>
+        </a>
+        <p class="cm-footer-description">
+            Compra y vende cerca. Coordina tu encuentro en un lugar público.
+        </p>
+        <small class="cm-footer-copyright">
+            &copy; 2026 CorilloMarket. Hecho para el corillo.
+        </small>
+    </footer>
+
+    <dialog class="cm-dialog" id="cm-login-dialog" aria-labelledby="cm-login-title">
+        <div class="cm-dialog-content">
+            <div class="cm-dialog-heading">
+                <div>
+                    <p class="cm-eyebrow">Qué bueno verte</p>
+                    <h2 class="cm-dialog-title" id="cm-login-title">Inicia sesión</h2>
+                </div>
+                <button
+                    class="cm-dialog-close"
+                    type="button"
+                    data-close-login
+                    aria-label="Cerrar ventana"
+                >&times;</button>
+            </div>
+            <p class="cm-form-message" data-login-message role="alert" hidden></p>
+            <form class="cm-form" id="cm-login-form">
+                <label class="cm-form-label" for="cm-login-cedula">Cédula</label>
+                <input
+                    class="cm-form-input"
+                    id="cm-login-cedula"
+                    name="cedula"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="username"
+                    required
+                >
+                <label class="cm-form-label" for="cm-login-password">Contraseña</label>
+                <input
+                    class="cm-form-input"
+                    id="cm-login-password"
+                    name="password"
+                    type="password"
+                    autocomplete="current-password"
+                    required
+                >
+                <button class="cm-button cm-button-primary cm-form-submit" type="submit">
+                    Entrar
+                </button>
+            </form>
+            <p class="cm-form-footer">
+                ¿No tienes cuenta? <a class="cm-text-link" href="#" data-ruta="registro">Regístrate</a>
+            </p>
+            <p class="cm-form-note">Demo local: cuentas, artículos y mensajes se comparten entre navegadores en esta computadora. El servidor los guarda temporalmente fuera de la carpeta pública hasta conectar una base de datos.</p>
+        </div>
+    </dialog>
+
+    <dialog class="cm-dialog" id="cm-listing-dialog" aria-labelledby="cm-listing-dialog-title">
+        <div class="cm-dialog-content">
+            <div class="cm-dialog-heading">
+                <div>
+                    <p class="cm-eyebrow">Comparte con el corillo</p>
+                    <h2 class="cm-dialog-title" id="cm-listing-dialog-title">Publicar artículo</h2>
+                </div>
+                <button
+                    class="cm-dialog-close"
+                    type="button"
+                    data-close-listing
+                    aria-label="Cerrar ventana"
+                >&times;</button>
+            </div>
+            <p class="cm-form-note">
+                Puedes tener hasta cinco artículos publicados. Llevas
+                <span data-dialog-count>0</span> de 5.
+            </p>
+            <p class="cm-form-message" data-listing-message role="alert" hidden></p>
+            <form class="cm-form" id="cm-listing-form">
+                <label class="cm-form-label" for="cm-listing-title">Nombre del artículo</label>
+                <input
+                    class="cm-form-input"
+                    id="cm-listing-title"
+                    name="title"
+                    type="text"
+                    maxlength="80"
+                    required
+                >
+                <label class="cm-form-label" for="cm-listing-category">Categoría</label>
+                <select class="cm-form-input" id="cm-listing-category" name="category" required>
+                    <option value="">Elige una categoría</option>
+                    <option>Electrónica</option>
+                    <option>Hogar</option>
+                    <option>Moda</option>
+                    <option>Deportes</option>
+                    <option>Vehículos</option>
+                    <option>Coleccionables</option>
+                    <option>Otros</option>
+                </select>
+                <label class="cm-form-label" for="cm-listing-price">
+                    Precio en pesos dominicanos
+                </label>
+                <input
+                    class="cm-form-input"
+                    id="cm-listing-price"
+                    name="price"
+                    type="number"
+                    min="1"
+                    step="1"
+                    required
+                >
+                <label class="cm-form-label" for="cm-listing-description">Descripción</label>
+                <textarea
+                    class="cm-form-input cm-form-textarea"
+                    id="cm-listing-description"
+                    name="description"
+                    maxlength="500"
+                    rows="4"
+                    required
+                ></textarea>
+                <button class="cm-button cm-button-primary cm-form-submit" type="submit">
+                    Publicar artículo
+                </button>
+            </form>
+        </div>
+    </dialog>
+</body>
+</html>
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artículo | CorilloMarket</title>
+    <script src="js/rutas.js" data-pagina="producto" defer></script>
+
+
+</head>
+<body class="cm-page">
+    <header class="cm-header cm-header-simple">
+        <a class="cm-brand" href="#" data-ruta="inicio">
+            <span class="cm-brand-mark">CM</span>
+            <span class="cm-brand-name">Corillo<span class="cm-brand-name-accent">Market</span></span>
+        </a>
+        <a class="cm-navigation-link" href="#" data-ruta="inicio">Volver a explorar</a>
+    </header>
+
+    <main class="cm-product-page cm-product-layout">
+        <div class="cm-product-column">
+            <p class="cm-eyebrow">Artículo publicado</p>
+            <p id="product-message" class="cm-form-message" role="alert" hidden></p>
+            <article id="product-detail" class="cm-detail-card">
+                <p>Cargando artículo…</p>
+            </article>
+            <section class="cm-map-section" aria-labelledby="map-title">
+                <p class="cm-eyebrow">Coordinen con calma</p>
+                <h2 class="cm-map-title" id="map-title">Punto de encuentro</h2>
+                <p class="cm-map-description">
+                    Aquí se sugerirá un lugar público para acordar la entrega de este artículo.
+                </p>
+                <div class="cm-map-placeholder" aria-label="Espacio reservado para el mapa de encuentros">
+                    <span class="cm-map-pin" aria-hidden="true">⌖</span>
+                    <strong>Mapa del encuentro</strong>
+                    <span>La ubicación sugerida aparecerá aquí</span>
+                    <small>Próximamente</small>
+                </div>
+            </section>
+        </div>
+
+        <aside id="chat-panel" class="cm-chat-panel" aria-label="Mensajes privados" hidden>
+            <div class="cm-chat-heading">
+                <div>
+                    <p class="cm-eyebrow">Mensajes privados</p>
+                    <h2 id="chat-title">Mensajes</h2>
+                </div>
+                <button id="chat-back" class="cm-button cm-button-secondary" type="button">← Volver</button>
+            </div>
+            <div id="chat-messages" class="cm-chat-messages" aria-live="polite"></div>
+            <p id="chat-empty" class="cm-chat-empty" hidden>Escribe un mensaje para iniciar la conversación.</p>
+            <form id="chat-form" class="cm-chat-form">
+                <input
+                    id="chat-text"
+                    class="cm-form-input"
+                    maxlength="1000"
+                    placeholder="Escribe un mensaje…"
+                    aria-label="Escribe un mensaje"
+                    required
+                >
+                <button class="cm-button cm-button-primary" type="submit">Enviar</button>
+            </form>
+        </aside>
+    </main>
+
+    <footer class="cm-footer cm-footer-simple">
+        <small class="cm-footer-copyright">&copy; 2026 CorilloMarket</small>
+    </footer>
+</body>
+</html>
