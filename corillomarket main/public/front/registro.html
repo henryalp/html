@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crea tu cuenta de CorilloMarket para comprar y vender cerca de ti.">
+    <title>Crear cuenta | CorilloMarket</title>
+    <script src="js/rutas.js" data-pagina="registro" defer></script>
+
+
+</head>
+<body class="cm-page cm-register-page">
+    <header class="cm-header cm-header-simple">
+        <a class="cm-brand" href="#" data-ruta="inicio" aria-label="CorilloMarket, inicio">
+            <span class="cm-brand-mark" aria-hidden="true">CM</span>
+            <span class="cm-brand-name">Corillo<span class="cm-brand-name-accent">Market</span></span>
+        </a>
+        <nav class="cm-navigation" aria-label="Navegación de cuenta">
+            <button
+                class="cm-theme-toggle"
+                type="button"
+                data-theme-toggle
+                aria-label="Cambiar tema"
+                aria-pressed="false"
+                title="Cambiar a modo claro"
+            >
+                <span class="cm-theme-toggle-icon" data-theme-icon aria-hidden="true">☼</span>
+            </button>
+            <a class="cm-navigation-link" href="#" data-ruta="inicio">Volver al inicio</a>
+        </nav>
+    </header>
+
+    <main class="cm-register-main">
+        <section class="cm-register-card" aria-labelledby="cm-register-title">
+            <p class="cm-eyebrow">Únete al corillo</p>
+            <h1 class="cm-register-card-title" id="cm-register-title">Crea tu cuenta</h1>
+            <p class="cm-register-card-description">Compra y vende artículos cerca de ti.</p>
+            <p class="cm-form-message" id="cm-register-message" role="alert" hidden></p>
+
+            <form class="cm-form" id="cm-register-form">
+                <label class="cm-form-label" for="cm-register-name">Nombre</label>
+                <input
+                    class="cm-form-input"
+                    id="cm-register-name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    minlength="2"
+                    maxlength="80"
+                    required
+                >
+                <label class="cm-form-label" for="cm-register-cedula">Cédula</label>
+                <input
+                    class="cm-form-input"
+                    id="cm-register-cedula"
+                    name="cedula"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="username"
+                    minlength="9"
+                    maxlength="13"
+                    required
+                >
+                <label class="cm-form-label" for="cm-register-correo">Correo electrónico</label>
+                <input
+                    class="cm-form-input"
+                    id="cm-register-correo"
+                    name="correo"
+                    type="email"
+                    autocomplete="email"
+                    maxlength="150"
+                    required
+                >
+                <label class="cm-form-label" for="cm-register-direccion">Dirección</label>
+                <input
+                    class="cm-form-input"
+                    id="cm-register-direccion"
+                    name="direccion"
+                    type="text"
+                    autocomplete="street-address"
+                    maxlength="160"
+                    placeholder="Sector, municipio y provincia"
+                    required
+                >                <label class="cm-form-label" for="cm-register-password">Contraseña</label>
+                <input
+                    class="cm-form-input"
+                    id="cm-register-password"
+                    name="password"
+                    type="password"
+                    autocomplete="new-password"
+                    minlength="8"
+                    required
+                >
+                <p class="cm-form-hint">Usa al menos 8 caracteres.</p>
+                <button class="cm-button cm-button-primary cm-form-submit" type="submit">
+                    Crear cuenta
+                </button>
+            </form>
+
+            <p class="cm-form-footer">
+                ¿Ya tienes cuenta? <a class="cm-text-link" href="#" data-ruta="login">Inicia sesión</a>
+            </p>
+            <p class="cm-form-note">Demo local: cuentas, artículos y mensajes se comparten entre navegadores en esta computadora. El servidor los guarda temporalmente fuera de la carpeta pública hasta conectar una base de datos.</p>
+        </section>
+    </main>
+
+    <footer class="cm-footer cm-footer-simple">
+        <small class="cm-footer-copyright">&copy; 2026 CorilloMarket. Hecho para el corillo.</small>
+    </footer>
+</body>
+</html>
